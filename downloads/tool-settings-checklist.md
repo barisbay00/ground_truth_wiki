@@ -1,5 +1,3 @@
-Before editing, configure your tool so corrections stay binary.
-
 ## Brush or pencil
 - [ ] hard edge
 - [ ] no softness
