@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A compact guide for correcting binarized manuscript images into ground-truth references.">
+  <title>Annotation Workflow | Ground Truth Wiki</title>
+  <link rel="stylesheet" href="/ground_truth_wiki/assets/styles.css">
+  <script>window.WIKI_BASE_PATH = "/ground_truth_wiki/";</script>
+  <script src="/ground_truth_wiki/assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <div class="site-title"><a href="/ground_truth_wiki/">Ground Truth Wiki</a></div>
+      <div class="site-description">A compact guide for correcting binarized manuscript images into ground-truth references.</div>
+      <label class="search-label" for="site-search">Search</label>
+      <input id="site-search" class="search-input" type="search" autocomplete="off" placeholder="Search the wiki">
+      <div id="search-results" class="search-results" aria-live="polite"></div>
+      <nav class="navigation" aria-label="Wiki navigation">
+        <ul><li><a href="/ground_truth_wiki/">Home</a></li><li><a href="/ground_truth_wiki/start-here/">Start Here</a></li><li><a href="/ground_truth_wiki/navigation-map/">Navigation Map</a></li><li><details open><summary>Core Concepts</summary><ul><li><a href="/ground_truth_wiki/core-concepts/binarization/">Binarization</a></li><li><a href="/ground_truth_wiki/core-concepts/binarized-draft/">Binarized Draft</a></li><li><a href="/ground_truth_wiki/core-concepts/binary-image/">Binary Image</a></li><li><a href="/ground_truth_wiki/core-concepts/foreground-and-background/">Foreground and Background</a></li><li><a href="/ground_truth_wiki/core-concepts/ground-truth/">Ground Truth</a></li><li><a href="/ground_truth_wiki/core-concepts/original-image/">Original Image</a></li><li><a href="/ground_truth_wiki/core-concepts/quick-glossary/">Quick Glossary</a></li></ul></details></li><li><details open><summary>Task Workflow</summary><ul><li><a class="active" href="/ground_truth_wiki/task-workflow/annotation-workflow/">Annotation Workflow</a></li><li><a href="/ground_truth_wiki/task-workflow/file-handling-and-naming/">File Handling and Naming</a></li><li><a href="/ground_truth_wiki/task-workflow/handoff-procedure/">Handoff Procedure</a></li></ul></details></li><li><details open><summary>Correction Guide</summary><ul><li><a href="/ground_truth_wiki/correction-guide/ambiguity-handling/">Ambiguity Handling</a></li><li><a href="/ground_truth_wiki/correction-guide/common-error-types/">Common Error Types</a></li><li><a href="/ground_truth_wiki/correction-guide/making-decisions/">Making Decisions</a></li><li><a href="/ground_truth_wiki/correction-guide/quality-checklist/">Quality Checklist</a></li></ul></details></li><li><details open><summary>Software Guides</summary><ul><li><a href="/ground_truth_wiki/software-guides/gimp/">GIMP</a></li><li><a href="/ground_truth_wiki/software-guides/microsoft-paint-windows/">Microsoft Paint Windows</a></li><li><a href="/ground_truth_wiki/software-guides/preview-macos/">Preview macOS</a></li><li><a href="/ground_truth_wiki/software-guides/tool-settings-checklist/">Tool Settings Checklist</a></li></ul></details></li><li><details open><summary>Troubleshooting</summary><ul><li><a href="/ground_truth_wiki/troubleshooting/common-problems/">Common Problems</a></li><li><a href="/ground_truth_wiki/troubleshooting/privacy-and-data-handling/">Privacy and Data Handling</a></li><li><a href="/ground_truth_wiki/troubleshooting/software-help-and-installation/">Software Help and Installation</a></li></ul></details></li><li><details open><summary>Templates</summary><ul><li><a href="/ground_truth_wiki/templates/image-log-template/">Image Log Template</a></li></ul></details></li><li><details open><summary>References</summary><ul><li><a href="/ground_truth_wiki/references/official-software-links/">Official Software Links</a></li></ul></details></li></ul>
+      </nav>
+    </aside>
+    <main id="content" class="content">
+      <article class="article">
+        <header class="article-header">
+          <p class="section-kicker">Task Workflow</p>
+          <h1>Annotation Workflow</h1>
+          
+        </header>
+        <h2 id="step-1-prepare-files">Step 1: Prepare files</h2>
+<p>Make a working copy of the binarized draft using the structure in <a href="/ground_truth_wiki/task-workflow/file-handling-and-naming/">File Handling and Naming</a>.</p>
+<h2 id="step-2-open-images-side-by-side">Step 2: Open images side by side</h2>
+<p>Place the original image and working binary image next to each other.</p>
+<h3 id="practical-setup">Practical setup</h3>
+<p>For example, place the original on the left and the working binary image on the right. Move through the image systematically:</p>
+<ol><li>top to bottom</li><li>left to right</li><li>borders and margins</li><li>dense text areas</li><li>faint or damaged regions</li><li>final full-page scan</li></ol>
+<h2 id="step-3-correct-false-foreground">Step 3: Correct false foreground</h2>
+<p>Remove black pixels that represent noise, stains, shadows, dust, page edges, or other background artifacts.</p>
+<blockquote><p>[!warning] Before deleting tiny marks, compare with the original image. A dot may be punctuation or a diacritic.</p></blockquote>
+<h2 id="step-4-if-necessary-restore-false-background">Step 4: If necessary, restore false background</h2>
+<p>Add black pixels where the draft erased real foreground that is visible in the original image.</p>
+<p>Examples:</p>
+<ul><li>missing punctuation</li><li>missing diacritics</li><li>disconnected character parts</li></ul>
+<blockquote><p>[!warning]  Do not guess missing content and please restore only what is clearly visible in the original.</p></blockquote>
+<h2 id="step-5-check-local-consistency">Step 5: Check local consistency</h2>
+<p>When zoomed in, always ask:</p>
+<ul><li>Does the correction match the original?</li><li>Did I accidentally thicken or reshape the mark?</li><li>Did I introduce pixels?</li><li>Did I remove meaningful content?</li></ul>
+<h2 id="step-6-check-global-consistency">Step 6: Check global consistency</h2>
+<p>Zoom out and inspect the whole image. Look for inconsistent cleanup, accidental brush marks, and missed border artifacts (there are usually many border artifacts  you can clean them with a wide brush or the select tool).</p>
+<h2 id="step-7-save-final-output">Step 7: Save final output</h2>
+<p>Save the final image in the PNG  format because it is lossless and widely supported.</p>
+<p>Run <a href="/ground_truth_wiki/correction-guide/quality-checklist/">Quality Checklist</a> and then save the final image in the PNG format (because it is lossless).</p>
+        <section class="backlinks" aria-labelledby="backlinks-title"><h2 id="backlinks-title">Backlinks</h2><ul><li><a href="/ground_truth_wiki/navigation-map/">Navigation Map</a></li><li><a href="/ground_truth_wiki/core-concepts/original-image/">Original Image</a></li></ul></section>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

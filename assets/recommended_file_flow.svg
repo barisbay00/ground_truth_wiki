@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="520" viewBox="0 0 850 520">
+  <defs><style>
+    .title {font-family:Arial,sans-serif;font-size:24px;font-weight:bold;fill:#111}
+    .t {font-family:Arial,sans-serif;font-size:16px;fill:#222}
+    .small {font-family:Arial,sans-serif;font-size:13px;fill:#444}
+    .box {fill:#fff;stroke:#333;stroke-width:1.5;rx:10}
+    .line {stroke:#555;stroke-width:1.5}
+  </style></defs>
+  <text x="425" y="35" text-anchor="middle" class="title">Recommended File Flow</text>
+  <rect x="55" y="70" width="230" height="70" class="box"/><text x="75" y="100" class="t">01_original/</text><text x="75" y="122" class="small">never edit these files</text>
+  <rect x="55" y="170" width="230" height="70" class="box"/><text x="75" y="200" class="t">02_binarized_draft/</text><text x="75" y="222" class="small">given starting point</text>
+  <rect x="365" y="120" width="230" height="70" class="box"/><text x="385" y="150" class="t">03_working/</text><text x="385" y="172" class="small">your editable copy</text>
+  <rect x="365" y="250" width="230" height="70" class="box"/><text x="385" y="280" class="t">04_ground_truth/</text><text x="385" y="302" class="small">final binary output</text>
+  <rect x="365" y="380" width="230" height="70" class="box"/><text x="385" y="410" class="t">05_review_notes/</text><text x="385" y="432" class="small">issues, decisions, uncertainty</text>
+  <line x1="285" y1="105" x2="365" y2="145" class="line"/>
+  <line x1="285" y1="205" x2="365" y2="155" class="line"/>
+  <line x1="480" y1="190" x2="480" y2="250" class="line"/>
+  <line x1="480" y1="320" x2="480" y2="380" class="line"/>
+  <rect x="635" y="250" width="165" height="70" class="box"/><text x="655" y="280" class="t">handoff package</text><text x="655" y="302" class="small">image + notes</text>
+  <line x1="595" y1="285" x2="635" y2="285" class="line"/>
+</svg>

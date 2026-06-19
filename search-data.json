@@ -1,0 +1,158 @@
+[
+  {
+    "title": "Ambiguity Handling",
+    "url": "/ground_truth_wiki/correction-guide/ambiguity-handling/",
+    "path": "03 Correction Guide/Ambiguity Handling.md",
+    "text": "Ambiguity is normal. The correct response is to make the best evidence-based decision or simply document it, in case you can't decide. A few questions You can ask: Is the mark visible in the original image? Is it connected to nearby foreground content? Does it repeat in a meaningful pattern? Could it be punctuation, a diacritic, or a symbol? Could it be dust, paper texture, bleed-through, or stain? Would keeping it affect algorithm evaluation unfairly? A few answers If a mark is unsupported by the original image and looks like noise remove it. If a mark is visible in the original image and pla"
+  },
+  {
+    "title": "Annotation Workflow",
+    "url": "/ground_truth_wiki/task-workflow/annotation-workflow/",
+    "path": "02 Task Workflow/Annotation Workflow.md",
+    "text": "Step 1: Prepare files Make a working copy of the binarized draft using the structure in File Handling and Naming. Step 2: Open images side by side Place the original image and working binary image next to each other. Practical setup For example, place the original on the left and the working binary image on the right. Move through the image systematically: top to bottom left to right borders and margins dense text areas faint or damaged regions final full-page scan Step 3: Correct false foreground Remove black pixels that represent noise, stains, shadows, dust, page edges, or other background "
+  },
+  {
+    "title": "Binarization",
+    "url": "/ground_truth_wiki/core-concepts/binarization/",
+    "path": "01 Core Concepts/Binarization.md",
+    "text": "Binarization Binarization is the process of converting an image into a binary that consists of two pixel classes. For our manuscripts, foreground is ink that is text or other meaningful marks. Background is paper, stains, shadows, scan texture, etc. Why binarization is difficult Real images contain uneven lighting, paper texture, ink bleed, weak strokes, shadows, stains, and sensor noise. A binarization algorithm may therefore: miss faint foreground turn stains into false foreground break thin strokes erase dots, punctuation, or diacritics keep speckles as text The task is to correct these mis"
+  },
+  {
+    "title": "Binarized Draft",
+    "url": "/ground_truth_wiki/core-concepts/binarized-draft/",
+    "path": "01 Core Concepts/Binarized Draft.md",
+    "text": "The binarized draft is the processed image you start from. It has already been binarized and noise filtered. It still contains errors. Why don't you use binarized drafts as ground truths? The draft is useful because it saves work but it can't be a ground truth. Image if we made the outputs the ground truths straight away, what would be the point in testing different algorithms? The algorithm that produced the drafts would always win, because it is would always provide the most similiar output. In fact, it would produce %100 similiar outputs %100 of the time. Click here to go back to Binarizati"
+  },
+  {
+    "title": "Binary Image",
+    "url": "/ground_truth_wiki/core-concepts/binary-image/",
+    "path": "01 Core Concepts/Binary Image.md",
+    "text": "Binary Image A binary image contains only two classes of pixels. In this project, we use this convention: black = foreground white = background The final image should not contain gray pixels, transparency, antialiased edges, colored annotations, semi-transparent brush marks, etc. Why strict binary output matters Ground truths are compared against algorithm outputs by counting pixel-level agreement and disagreement. Gray or transparent pixels make that comparison invalid. Check before submission Use the tool you are working in to confirm that the output is black and white only. See also Quality"
+  },
+  {
+    "title": "Common Error Types",
+    "url": "/ground_truth_wiki/correction-guide/common-error-types/",
+    "path": "03 Correction Guide/Common Error Types.md",
+    "text": "False foreground This is when the background becomes black. Common sources: paper texture dust shadows stains compression artifacts page edges Fix: paint those pixels white if the original does not support them as content. False background This is when foreground becomes white. Common sources: faint ink thin strokes weak punctuation over-aggressive noise filtering broken characters Fix: paint those pixels black if the original supports them as content. Stroke thickening Foreground becomes too thick compared with the original. This should be extremely rare, otherwise, something must have went t"
+  },
+  {
+    "title": "Common Problems",
+    "url": "/ground_truth_wiki/troubleshooting/common-problems/",
+    "path": "05 Troubleshooting/Common Problems.md",
+    "text": "I am not sure whether a mark is text or noise Compare against the original image and check nearby similar marks. If it remains uncertain, record it in notes. See Ambiguity Handling. My brush creates gray edges Switch to a pencil tool, disable antialiasing or use a hard brush. I accidentally edited the original No worries, we do have back-ups. you can just stop using that file, restore it from the original source and continue from a clean copy. The output dimensions changed Return to the working copy before resizing if possible. Try exporting again without resizing. If dimensions are already ch"
+  },
+  {
+    "title": "File Handling and Naming",
+    "url": "/ground_truth_wiki/task-workflow/file-handling-and-naming/",
+    "path": "02 Task Workflow/File Handling and Naming.md",
+    "text": "recommended file flow Recommended folders Use this structure when possible: project/ 01_original/ 02_binarized_draft/ 03_working/ 04_ground_truth/ 05_review_notes/ Naming pattern Use a stable pattern so files can be matched automatically: <image_id>_original.<ext> <image_id>_draft.png <image_id>_ground_truth.png <image_id>_notes.md Example: page_00042_original.jpg page_00042_draft.png page_00042_ground_truth.png page_00042_notes.md No need for personal initials Dimensions The ground truth should normally have the same pixel dimensions as the draft and original. Do not crop, rotate, resize, des"
+  },
+  {
+    "title": "Foreground and Background",
+    "url": "/ground_truth_wiki/core-concepts/foreground-and-background/",
+    "path": "01 Core Concepts/Foreground and Background.md",
+    "text": "Simply, foreground is the meaningful visible content that the binary image should preserve and background is everything else. Foreground examples text punctuation diacritics Default background examples paper texture scanner shadows dust random speckles bleed-through from the other side stains, unless they are meaningful marks margins and empty page areas Ambiguous cases When uncertain, compare the original image and draft. If still uncertain, follow Ambiguity Handling and record the case in your notes."
+  },
+  {
+    "title": "GIMP",
+    "url": "/ground_truth_wiki/software-guides/gimp/",
+    "path": "04 Software Guides/GIMP.md",
+    "text": "GIMP is a free, open-source, cross-platform image editor. It is a strong choice for this task because it supports precise zooming, hard-edged brushes, layers, and lossless export. Official site: https://www.gimp.org/ Download page: https://www.gimp.org/downloads/ Documentation: https://www.gimp.org/docs/ Use GIMP for careful correction of binarized drafts, especially when there are many small artifacts or uncertain regions. Suggested setup Use the Pencil Tool for hard-edged pixel edits. Avoid soft brushes and blur tools. Set foreground color to pure black. Set background color to pure white. U"
+  },
+  {
+    "title": "Ground Truth",
+    "url": "/ground_truth_wiki/core-concepts/ground-truth/",
+    "path": "01 Core Concepts/Ground Truth.md",
+    "text": "A ground truth is simply a trusted reference that can be used to evaluate (or train) an algorithm. A popular example you might have heard of concerns LLMs: in supervised learning, LLMs train on data that often includes ground-truth labels. In simple terms, it is given a picture of a cat and the ground truth label of the image is \"cat\". The model makes a prediction and then compares it to the ground truth. It then measures the error and adjusts itself to reduce that error over many of such examples. Eventually, it learns to predict the correct answer. Now, we WILL NOT be training any LLMs and t"
+  },
+  {
+    "title": "Handoff Procedure",
+    "url": "/ground_truth_wiki/task-workflow/handoff-procedure/",
+    "path": "02 Task Workflow/Handoff Procedure.md",
+    "text": "We have decided to progress with the work packages on a rolling basis so it would be great if you could upload the ground truths to the cloud as soon as you are done with them. Suggested final package 04_ground_truth/ page_00042_ground_truth.png 05_review_notes/ page_00042_notes.md/.txt/.doc If using software with project files, keep the working file separately: 03_working/ page_00042_working.xcf For GIMP,.xcf is useful as a working format, but the submitted ground truth should still be the agreed image format,.png."
+  },
+  {
+    "title": "Home",
+    "url": "/ground_truth_wiki/",
+    "path": "Home.md",
+    "text": "This is a mini wiki that explains how to work a binarized, noise-filtered image into a reliable ground truth image for testing binarization algorithms. What? Okay, so, some of the wiki here is not essential knowledge and you do not need to know about most of these concepts to fulfill this task. The task is as simple as making sure the black and white images reflect the original manuscript images as closely as possible. It can be done in paint. All you really need to know is... The goal The final ground truth should preserve visible foreground content and remove false foreground noise, without "
+  },
+  {
+    "title": "Image Log Template",
+    "url": "/ground_truth_wiki/templates/image-log-template/",
+    "path": "06 Templates/Image Log Template.md",
+    "text": "Use one copy of this note per image when needed. Image ID <image_id> Notes Ambiguous decisions Line/Area Decision Reason"
+  },
+  {
+    "title": "Making Decisions",
+    "url": "/ground_truth_wiki/correction-guide/making-decisions/",
+    "path": "03 Correction Guide/Making Decisions.md",
+    "text": "pixel decision guide First principle A pixel should be foreground if it is meaningful and visible in the original image. Otherwise, it should be background. If that is ambigious, see below. Keep as foreground Examples: strokes of characters punctuation dots over letters accents and diacritics table lines diagrams handwritten marks signatures or stamps Remove as background Examples: random speckles dust scanner noise shadows paper texture stains compression artifacts page-border noise bleed-through Edge Cases Bleed-through Bleed-through is content from the reverse side of a page showing through"
+  },
+  {
+    "title": "Microsoft Paint Windows",
+    "url": "/ground_truth_wiki/software-guides/microsoft-paint-windows/",
+    "path": "04 Software Guides/Microsoft Paint Windows.md",
+    "text": "Microsoft Paint is included with Windows and is useful for simple edits. Microsoft describes Paint as a Windows app for drawing, creating, and editing images. I describe paint as what got me through my bachelor's degree drawing syntax trees. Official page: https://www.microsoft.com/windows/paint Start workflow Open the binarized draft in Paint. Open the original image in another window for comparison. Use pencil-like hard edits when possible. Save the corrected image as PNG. Important cautions Paint is convenient, but it can be less precise for complex pixel-level work than GIMP. Avoid tools t"
+  },
+  {
+    "title": "Navigation Map",
+    "url": "/ground_truth_wiki/navigation-map/",
+    "path": "Navigation Map.md",
+    "text": "Concepts Ground Truth Binarization Binary Image Original Image Binarized Draft Foreground and Background Quick Glossary Workflow Annotation Workflow File Handling and Naming Handoff Procedure Corrections Making Decisions Quality Checklist Common Error Types Ambiguity Handling Software GIMP Microsoft Paint Windows Preview macOS Tool Settings Checklist Troubleshooting Common Problems Software Help and Installation Privacy and Data Handling Templates Image Log Template"
+  },
+  {
+    "title": "Official Software Links",
+    "url": "/ground_truth_wiki/references/official-software-links/",
+    "path": "08 References/Official Software Links.md",
+    "text": "GIMP Official site: https://www.gimp.org/ Downloads: https://www.gimp.org/downloads/ Documentation: https://www.gimp.org/docs/ Online manuals: https://docs.gimp.org/ Microsoft Paint Official page: https://www.microsoft.com/windows/paint Apple Preview Preview User Guide: https://support.apple.com/guide/preview/welcome/mac Getting started with Preview: https://support.apple.com/guide/preview/get-started-prvw846b61d3/mac Paint.NET Official site: https://www.getpaint.net/"
+  },
+  {
+    "title": "Original Image",
+    "url": "/ground_truth_wiki/core-concepts/original-image/",
+    "path": "01 Core Concepts/Original Image.md",
+    "text": "The original image is the source image before binarization. Use it as evidence when deciding whether a mark in the draft should be foreground or background. How can I use it? Open the original and binarized draft side by side using your window manager and zoom into uncertain areas in both images. Ask: Is this mark visible in the original? Is it likely meaningful foreground? Is it only paper texture, stain, shadow, dust, or scan noise? Does the binarized draft remove something that is clearly visible in the original? Then edit accordingly. You can also see Annotation Workflow."
+  },
+  {
+    "title": "Preview macOS",
+    "url": "/ground_truth_wiki/software-guides/preview-macos/",
+    "path": "04 Software Guides/Preview macOS.md",
+    "text": "Preview is the built-in macOS app for opening, viewing, editing, and exporting image files and PDFs...apparently. I have no idea because I never touched a mac. Official guide: https://support.apple.com/guide/preview/welcome/mac Getting started: https://support.apple.com/guide/preview/get-started-prvw846b61d3/mac It does not sound like the best tool for detailed pixel-level correction, but I hope it has at least a pen tool? Is there no other image manipulation program that comes with a mac? I wouldn't know...because I never touched a mac. Recommended role Use Preview to: open the original image"
+  },
+  {
+    "title": "Privacy and Data Handling",
+    "url": "/ground_truth_wiki/troubleshooting/privacy-and-data-handling/",
+    "path": "05 Troubleshooting/Privacy and Data Handling.md",
+    "text": "Ground truth work may involve copyrighted images so do not upload the images to online tools unless explicitly allowed. When in doubt, ask whether the images may be opened in cloud-based tools before using them."
+  },
+  {
+    "title": "Quality Checklist",
+    "url": "/ground_truth_wiki/correction-guide/quality-checklist/",
+    "path": "03 Correction Guide/Quality Checklist.md",
+    "text": "If you like checklists, here is one you can use: Decisions based on evidence [ ] I compared the draft against the original image. [ ] Every major edit is supported by the original image. [ ] I did not invent missing content. [ ] I did not use the binarized draft as a reference. Binary correctness [ ] The final image contains only foreground and background. [ ] There are no gray pixels. [ ] There are no semi-transparent pixels. [ ] There are no colored annotation marks. Content preservation [ ] Text strokes are not accidentally removed. [ ] Punctuation is preserved. [ ] Diacritics and accents a"
+  },
+  {
+    "title": "Quick Glossary",
+    "url": "/ground_truth_wiki/core-concepts/quick-glossary/",
+    "path": "01 Core Concepts/Quick Glossary.md",
+    "text": "Glossary Artifact: An unwanted mark created by scanning, compression, filtering, or binarization. Background: The non-content class, usually white in the final binary image. Binary image: An image with only two pixel classes. Binarization: Converting an image into foreground and background. Draft: The provided binarized image before manual correction. False background: A real foreground mark that was incorrectly turned white. False foreground: Background that was incorrectly turned black. Foreground: Meaningful visible content, usually black in the final binary image. Ground truth: The trusted"
+  },
+  {
+    "title": "Software Help and Installation",
+    "url": "/ground_truth_wiki/troubleshooting/software-help-and-installation/",
+    "path": "05 Troubleshooting/Software Help and Installation.md",
+    "text": "If your software blocks you from doing the task, ask for help early. I can help you find, choose, or install your preferred software. Depending on your OS: Windows: Microsoft Paint may already be installed. GIMP is recommended for careful editing. macOS: Preview is available by default for viewing. GIMP is recommended for careful editing. Linux: GIMP is usually available through the system package manager."
+  },
+  {
+    "title": "Start Here",
+    "url": "/ground_truth_wiki/start-here/",
+    "path": "Start Here.md",
+    "text": "Great! You can explore the wiki by clicking whatever interests you on the left or I have prepared a trail you can explore by following the links at the end of the pages. However you start exploring, here are some core definitions to start with: Core definitions The smallest unit we will be dealing with is a pixel. A pixel is one addressable square of an image. A binary image is an image where each pixel belongs to one of two classes, foreground (black) or and background (white) in our case. Binarization is the process of converting an image into a binary image. A ground truth is the reference "
+  },
+  {
+    "title": "Tool Settings Checklist",
+    "url": "/ground_truth_wiki/software-guides/tool-settings-checklist/",
+    "path": "04 Software Guides/Tool Settings Checklist.md",
+    "text": "Before editing, configure your tool so corrections stay binary. Brush or pencil [ ] hard edge [ ] no softness [ ] no transparency [ ] no antialiasing if configurable [ ] black color is pure black [ ] white color is pure white Canvas [ ] same dimensions as input [ ] no accidental crop [ ] no resize [ ] no rotation [ ] result is in one layer (ignore if you don't use layers) Export [ ] PNG format and no compression"
+  }
+]

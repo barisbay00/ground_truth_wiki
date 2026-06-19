@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A compact guide for correcting binarized manuscript images into ground-truth references.">
+  <title>Home | Ground Truth Wiki</title>
+  <link rel="stylesheet" href="/ground_truth_wiki/assets/styles.css">
+  <script>window.WIKI_BASE_PATH = "/ground_truth_wiki/";</script>
+  <script src="/ground_truth_wiki/assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="site-shell">
+    <aside class="sidebar">
+      <div class="site-title"><a href="/ground_truth_wiki/">Ground Truth Wiki</a></div>
+      <div class="site-description">A compact guide for correcting binarized manuscript images into ground-truth references.</div>
+      <label class="search-label" for="site-search">Search</label>
+      <input id="site-search" class="search-input" type="search" autocomplete="off" placeholder="Search the wiki">
+      <div id="search-results" class="search-results" aria-live="polite"></div>
+      <nav class="navigation" aria-label="Wiki navigation">
+        <ul><li><a class="active" href="/ground_truth_wiki/">Home</a></li><li><a href="/ground_truth_wiki/start-here/">Start Here</a></li><li><a href="/ground_truth_wiki/navigation-map/">Navigation Map</a></li><li><details open><summary>Core Concepts</summary><ul><li><a href="/ground_truth_wiki/core-concepts/binarization/">Binarization</a></li><li><a href="/ground_truth_wiki/core-concepts/binarized-draft/">Binarized Draft</a></li><li><a href="/ground_truth_wiki/core-concepts/binary-image/">Binary Image</a></li><li><a href="/ground_truth_wiki/core-concepts/foreground-and-background/">Foreground and Background</a></li><li><a href="/ground_truth_wiki/core-concepts/ground-truth/">Ground Truth</a></li><li><a href="/ground_truth_wiki/core-concepts/original-image/">Original Image</a></li><li><a href="/ground_truth_wiki/core-concepts/quick-glossary/">Quick Glossary</a></li></ul></details></li><li><details open><summary>Task Workflow</summary><ul><li><a href="/ground_truth_wiki/task-workflow/annotation-workflow/">Annotation Workflow</a></li><li><a href="/ground_truth_wiki/task-workflow/file-handling-and-naming/">File Handling and Naming</a></li><li><a href="/ground_truth_wiki/task-workflow/handoff-procedure/">Handoff Procedure</a></li></ul></details></li><li><details open><summary>Correction Guide</summary><ul><li><a href="/ground_truth_wiki/correction-guide/ambiguity-handling/">Ambiguity Handling</a></li><li><a href="/ground_truth_wiki/correction-guide/common-error-types/">Common Error Types</a></li><li><a href="/ground_truth_wiki/correction-guide/making-decisions/">Making Decisions</a></li><li><a href="/ground_truth_wiki/correction-guide/quality-checklist/">Quality Checklist</a></li></ul></details></li><li><details open><summary>Software Guides</summary><ul><li><a href="/ground_truth_wiki/software-guides/gimp/">GIMP</a></li><li><a href="/ground_truth_wiki/software-guides/microsoft-paint-windows/">Microsoft Paint Windows</a></li><li><a href="/ground_truth_wiki/software-guides/preview-macos/">Preview macOS</a></li><li><a href="/ground_truth_wiki/software-guides/tool-settings-checklist/">Tool Settings Checklist</a></li></ul></details></li><li><details open><summary>Troubleshooting</summary><ul><li><a href="/ground_truth_wiki/troubleshooting/common-problems/">Common Problems</a></li><li><a href="/ground_truth_wiki/troubleshooting/privacy-and-data-handling/">Privacy and Data Handling</a></li><li><a href="/ground_truth_wiki/troubleshooting/software-help-and-installation/">Software Help and Installation</a></li></ul></details></li><li><details open><summary>Templates</summary><ul><li><a href="/ground_truth_wiki/templates/image-log-template/">Image Log Template</a></li></ul></details></li><li><details open><summary>References</summary><ul><li><a href="/ground_truth_wiki/references/official-software-links/">Official Software Links</a></li></ul></details></li></ul>
+      </nav>
+    </aside>
+    <main id="content" class="content">
+      <article class="article">
+        <header class="article-header">
+          <p class="section-kicker">Wiki</p>
+          <h1>Home</h1>
+          
+        </header>
+        <p>This is a mini wiki that explains how to work a binarized, noise-filtered image into a reliable <a href="/ground_truth_wiki/core-concepts/ground-truth/">ground truth</a> image for testing <a href="/ground_truth_wiki/core-concepts/binarization/">binarization</a> algorithms.</p>
+<h2 id="what">What?</h2>
+<p>Okay, so, some of the wiki here is not essential knowledge and you do not need to know about most of these concepts to fulfill this task. The task is as simple as making sure the black and white images reflect the original manuscript images as closely as possible. It can be done in paint. All you <em>really</em> need to know is...</p>
+<h2 id="the-goal">The goal</h2>
+<p>The final ground truth should preserve visible foreground content and remove false foreground noise, without inserting content that is not in the original image. See <a href="/ground_truth_wiki/core-concepts/foreground-and-background/">Foreground and Background</a>.</p>
+<h2 id="what-will-i-do">What will I do?</h2>
+<p>You will receive two images for each item:</p>
+<ul><li>an <a href="/ground_truth_wiki/core-concepts/original-image/">original image</a> in color</li><li>a <a href="/ground_truth_wiki/core-concepts/binarized-draft/">binarized draft</a> in black and white that has already been noise filtered</li></ul>
+<p>Your task is to improve the binarized draft by comparing it against the original image until the draft reflects the original image as much as possible. The ideal final output should represent the best binary reference answer for that image.</p>
+<p>See <a href="/ground_truth_wiki/navigation-map/">Navigation Map</a> for templates and checklists and especially important sections (02 Workflow and 03 Corrections)</p>
+<h2 id="what-do-i-need">What do I need?</h2>
+<p>Any image manipulation tool of your choosing (e.g., GIMP, paint, preview). Almost all operating systems today are shipped with at least a basic image manipulation software, so, chances are, you already have one installed.</p>
+<h2 id="example-workflow">Example workflow</h2>
+<ol><li>Open the original image and binarized draft side by side.</li><li>Remove false foreground noise.</li><li>Restore missing foreground that is visible in the original (should not be the case normally).</li><li>Save using the agreed filename and format.</li><li>Run the <a href="/ground_truth_wiki/correction-guide/quality-checklist/">Quality Checklist</a>.</li></ol>
+<h2 id="help-line">Help line</h2>
+<p>For software installation or tool problems, see <a href="/ground_truth_wiki/troubleshooting/software-help-and-installation/">Software Help and Installation</a>. If the issue blocks progress, you can always ask me (baris.bay@uni-konstanz.de) for help choosing, finding, or installing your preferred software.</p>
+<h2 id="but-i-am-curious">But I am curious...</h2>
+<p>In that case, <a href="/ground_truth_wiki/start-here/">Start Here</a></p>
+<h2 id="a-big-thank-you">A big thank you</h2>
+<p>Thank you for taking up this task! I brought some stickers.</p>
+<figure class="media-embed"><img src="/ground_truth_wiki/assets/hiwinotkiwi.png" alt="hiwinotkiwi" style="max-width: min(100%, 423px)"></figure>
+        
+      </article>
+    </main>
+  </div>
+</body>
+</html>
