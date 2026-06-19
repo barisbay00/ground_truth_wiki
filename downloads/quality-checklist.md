@@ -1,4 +1,3 @@
-If you like checklists, here is one you can use:
 ## Decisions based on evidence
 - [ ] I compared the draft against the original image.
 - [ ] Every major edit is supported by the original image.
